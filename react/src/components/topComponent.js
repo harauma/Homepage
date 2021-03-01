@@ -1,6 +1,5 @@
 import React from "react";
 import { Link } from 'react-router-dom';
-// import CssBaseline from '@material-ui/core/CssBaseline';
 import { makeStyles } from "@material-ui/core/styles";
 import Table from "@material-ui/core/Table";
 import TableBody from "@material-ui/core/TableBody";
@@ -13,13 +12,7 @@ import Button from '@material-ui/core/Button';
 import Box from '@material-ui/core/Box';
 import Grid from '@material-ui/core/Grid';
 
-// import Grid from '@material-ui/core/Grid';
-// import Typography from '@material-ui/core/Typography';
-// import Divider from '@material-ui/core/Divider';
-// import Markdown from './Markdown.js';
-
 import Header from './Header';
-// import CircularStatic from './CircularStatic';
 
 import "../styles/topComponent.css";
 
@@ -53,20 +46,19 @@ const useStyles = makeStyles((theme) => ({
 
 export default function TopComponent (props) {
   const classes = useStyles();
-  const { posts, title } = props;
   return (
     <React.Fragment>
       {/* <CircularStatic /> */}
       <Header />
       <Box className="container">
         <div class="main">
-          <h1>FCシステナ</h1>
+          <h1>ノルフェア</h1>
           <Grid container spacing={3}>
             <Grid item xs={12} sm={6}>
               <p class="topText">全国複数拠点で活動しているフットサルチームです。<br/><strong>男性女性、未経験者</strong>も大歓迎です！</p>
             </Grid>
             <Grid item xs={12} sm={6}>
-              <img src={`${process.env.PUBLIC_URL}/image/soccer_futsal_man.png`} />
+              <img src={`${process.env.PUBLIC_URL}/image/soccer_futsal_man.png`} alt="フットサルをする男性"/>
             </Grid>
           </Grid>
         </div>

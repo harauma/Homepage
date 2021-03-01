@@ -27,16 +27,6 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-const toggleFlg = true;
-
-// const handleChange = event => {
-//   if this.toggleFlg {
-//     this.toggleFlg = false;
-//   } else {
-//     this.toggleFlg = true;
-//   }
-// };
-
 export default function Review(props) {
   const classes = useStyles();
   const {userInfo, toggleFlg, setToggleFlg} = props;
