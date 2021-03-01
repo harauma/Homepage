@@ -41,10 +41,16 @@ export default function AddressForm(props) {
           />
         </Grid>
         <Grid item xs={12} sm={6}>
-          <RadioButtonsGroup />
+          <RadioButtonsGroup
+          userInfo = {userInfo}
+          setUserInfo = {setUserInfo}
+          />
         </Grid>
         <Grid item xs={12} sm={6}>
-          <SelectBox />
+          <SelectBox
+          userInfo = {userInfo}
+          setUserInfo = {setUserInfo}
+          />
         </Grid>
         <Grid item xs={12}>
           <TextField

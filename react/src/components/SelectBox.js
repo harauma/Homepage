@@ -15,12 +15,13 @@ const useStyles = makeStyles((theme) => ({
     marginTop: theme.spacing(2),
   },
 }));
-export default function SelectBox() {
+export default function SelectBox(props) {
   const classes = useStyles();
+  const {userInfo, setUserInfo} = props;
   const [age, setAge] = React.useState('');
 
   const handleChange = (event) => {
-    setAge(event.target.value);
+    setUserInfo({...userInfo, age: event.target.value});
   };
   return (
     <div>
@@ -29,7 +30,7 @@ export default function SelectBox() {
         <Select
           labelId="demo-simple-select-outlined-label"
           id="demo-simple-select-outlined"
-          value={age}
+          value={userInfo.age}
           onChange={handleChange}
           label="Age"
         >

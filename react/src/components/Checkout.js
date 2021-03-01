@@ -93,9 +93,9 @@ export default function Checkout() {
   const classes = useStyles();
   const [activeStep, setActiveStep] = React.useState(0);
   const [userInfo, setUserInfo] = React.useState({
-    lastName: "aaa",
-    firstName: "bbb",
-    sex: "",
+    lastName: "",
+    firstName: "",
+    sex: "male",
     age: "",
     address: "",
     text: "",

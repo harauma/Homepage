@@ -8,18 +8,11 @@ import Grid from '@material-ui/core/Grid';
 import FormControlLabel from '@material-ui/core/FormControlLabel';
 import Checkbox from '@material-ui/core/Checkbox';
 
-const products = [
-  { name: '名前', desc: '', price: '' },
-  { name: '性別', desc: '', price: '男性' },
-  { name: '年齢', desc: '', price: '年齢' },
-  { name: '住所', desc: '', price: '北海道札幌市' },
-];
-const addresses = ['1 Material-UI Drive', 'Reactville', 'Anytown', '99999', 'USA'];
-const payments = [
-  { name: 'Card type', detail: 'Visa' },
-  { name: 'Card holder', detail: 'Mr John Smith' },
-  { name: 'Card number', detail: 'xxxx-xxxx-xxxx-1234' },
-  { name: 'Expiry date', detail: '04/2024' },
+const dispUserInfo = [
+  { name: '名前', desc: '', value: '' },
+  { name: '性別', desc: '', value: '男性' },
+  { name: '年齢', desc: '', value: '年齢' },
+  { name: '住所', desc: '', value: '北海道札幌市' },
 ];
 
 const useStyles = makeStyles((theme) => ({
@@ -48,20 +41,20 @@ export default function Review(props) {
   const classes = useStyles();
   const {userInfo, toggleFlg, setToggleFlg} = props;
   console.log(props)
-  products[0].price = userInfo.lastName + props.userInfo.firstName;
-  products[1].price = userInfo.sex;
-  products[2].price = userInfo.age;
-  products[3].price = userInfo.address;
+  dispUserInfo[0].value = userInfo.lastName + props.userInfo.firstName;
+  dispUserInfo[1].value = exchangeSex(userInfo.sex);
+  dispUserInfo[2].value = userInfo.age;
+  dispUserInfo[3].value = userInfo.address;
   return (
     <React.Fragment>
       <Typography variant="h6" gutterBottom>
         お客様情報
       </Typography>
       <List disablePadding>
-        {products.map((product) => (
+        {dispUserInfo.map((product) => (
           <ListItem className={classes.listItem} key={product.name}>
             <ListItemText primary={product.name} secondary={product.desc} />
-            <Typography variant="body2">{product.price}</Typography>
+            <Typography variant="body2">{product.value}</Typography>
           </ListItem>
         ))}
       <Typography variant="h6" gutterBottom>
@@ -72,7 +65,7 @@ export default function Review(props) {
       <Grid container spacing={2}>
         <Grid item xs={12}>
           <FormControlLabel
-            control={<Checkbox color="secondary" name="saveAddress" value="yes" onClick={() => setToggleFlg(!toggleFlg)} />}
+            control={<Checkbox color="secondary" name="saveAddress" checked={!toggleFlg} onClick={() => setToggleFlg(!toggleFlg)} />}
             label="上記の内容でよろしいですか？"
           />
         </Grid>
@@ -81,6 +74,15 @@ export default function Review(props) {
   );
 }
 
-const onChangeCheckbox = () => {
-  
+function exchangeSex(sex) {
+  switch (sex) {
+    case 'male':
+      return "男性";
+    case 'female':
+      return "女性";
+    case 'other':
+      return "その他";
+    default:
+      throw new Error('Unknown');
+  }
 }
