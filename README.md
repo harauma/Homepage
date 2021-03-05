@@ -1,2 +1,2 @@
-# react_redux
-React勉強用リポジトリ
+# react_materialui
+お問い合わせフォーム
